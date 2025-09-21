@@ -5,7 +5,8 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/", // ✅ must be "/" for Vercel SPA deployment
+  // Use relative paths for Netlify static deployment
+  base: "./",
   server: {
     host: "::",
     port: 8080,
