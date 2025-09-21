@@ -1,73 +1,111 @@
-# Welcome to your Lovable project
+# 🌐 TrustLens
 
-## Project info
+**TrustLens** is an AI-powered platform that brings clarity and trust to the information you rely on. Legal documents are often full of jargon, and misinformation spreads faster than ever — leaving students, professionals, and families vulnerable to confusion, hidden risks, and false claims.  
 
-**URL**: https://lovable.dev/projects/c41c371e-94df-4220-a706-f25dff9446c6
+TrustLens combines **two critical capabilities in one tool**:
 
-## How can I edit this code?
+1. **Legal Clarity Engine** – Upload contracts, rental agreements, or policies and get simplified, clause-by-clause explanations in plain English. Risky terms are flagged, hidden obligations are revealed, and every report comes with a **TrustScore** to help users quickly understand fairness and transparency.  
+2. **Misinformation Detector** – Paste a URL, news snippet, or social post to uncover questionable claims. TrustLens checks facts against authoritative sources, highlights misleading content, and teaches users how to spot similar red flags in the future.  
 
-There are several ways of editing your application.
+At its core, TrustLens is more than a tool — it’s a **personal information integrity assistant**. With an **AI-powered chat assistant**, explainable evidence trails, and an educational hub, the platform empowers users to:  
+- Make smarter decisions when signing legal documents.  
+- Avoid falling prey to misleading information online.  
+- Build literacy in recognizing and verifying truth.  
 
-**Use Lovable**
+The system is designed to be **secure, auditable, and user-friendly**, with encrypted uploads, explainable AI outputs, and a clean web + mobile UI. Whether you’re reviewing a lease agreement or questioning a viral article, TrustLens ensures that **clarity and truth are always within reach**.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/c41c371e-94df-4220-a706-f25dff9446c6) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## ✨ Features
 
-**Use your preferred IDE**
+### 🔍 Legal Document Insights
+- Upload contracts, policies, or agreements (PDF, DOCX, TXT)
+- Get **clause-by-clause summaries** in plain English
+- Identify **risks, hidden terms, and obligations**
+- Receive a **TrustScore** for overall clarity & fairness
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### 📰 Misinformation Detection
+- Paste text or URLs of news articles, posts, or blogs
+- Extract claims and check credibility with citations
+- Highlight questionable or misleading information
+- Generate **explainable TrustScores** for content reliability
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### 🤖 AI Chat Assistant
+- Context-aware chatbot trained on your uploaded docs
+- Ask legal or credibility-related questions
+- Get **explanations with source references**
+- Supports follow-ups and ongoing conversations
 
-Follow these steps:
+### 📚 Education Hub
+- Learn how to spot misinformation patterns
+- Understand common legal traps in contracts
+- Access **bite-sized lessons & examples**
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+---
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## 🛠️ Tech Stack
 
-# Step 3: Install the necessary dependencies.
-npm i
+**Frontend**
+- Next.js 14 (App Router)
+- Tailwind CSS + shadcn/ui
+- React Query + Zustand for state management
+- Recharts (TrustScore gauges & visualizations)
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+**Backend**
+- FastAPI (Python)
+- PostgreSQL + pgvector (semantic search)
+- Celery + Redis (async background tasks)
+- LLM integration (Gemini/OpenAI)
+- Secure file handling (S3-ready)
+
+**Deployment**
+- Docker & Docker Compose for backend
+- Vercel-ready frontend deployment
+
+---
+
+## ⚙️ Installation
+
+### 🔧 Prerequisites
+- Node.js 18+
+- Python 3.10+
+- PostgreSQL 15+ with `pgvector`
+- Redis (for async tasks)
+- Docker (optional but recommended)
+
+### Frontend Setup
+```bash
+cd frontend
+cp .env.example .env   # add API base URL
+npm install
 npm run dev
 ```
+🧪 Example Workflow
 
-**Edit a file directly in GitHub**
+Upload a rental agreement → TrustLens returns plain-language summary + flagged risks + TrustScore (72/100)
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Paste a viral news link → TrustLens highlights dubious claims, provides fact-check citations, and gives a credibility TrustScore (40/100)
 
-**Use GitHub Codespaces**
+Ask in chat: “Am I liable if my guest breaks something?” → AI explains relevant clauses and obligations with direct references
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Visit Education Hub → Learn common red flags in misinformation and contracts
 
-## What technologies are used for this project?
+🔒 Security & Privacy
 
-This project is built with:
+🔑 JWT authentication with refresh tokens
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+🔐 All file uploads encrypted at rest
 
-## How can I deploy this project?
+📜 Audit logs of all AI interactions
 
-Simply open [Lovable](https://lovable.dev/projects/c41c371e-94df-4220-a706-f25dff9446c6) and click on Share -> Publish.
+🗑️ Full data deletion on request (GDPR/CCPA compliant)
 
-## Can I connect a custom domain to my Lovable project?
+🚀 Roadmap
 
-Yes, you can!
+ Browser extension for quick misinformation checks
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+ Multi-language support
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+ Offline mode with local embeddings
+
+ Advanced analytics dashboard
