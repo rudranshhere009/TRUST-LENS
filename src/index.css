@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* TrustLens Design System - Professional Trust Theme (Light) */
+    --background: 0 0% 100%;
+    --foreground: 215 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 15%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 142 76% 36%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 40% 98%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 217 91% 95%;
+    --accent-foreground: 217 91% 20%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 217 91% 60%;
+    
+    /* Trust Score Colors */
+    --trust-high: 142 76% 36%;
+    --trust-medium: 35 91% 55%;
+    --trust-low: 0 84% 60%;
+    
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Vibrant Dark Theme with Shade Palette */
+    --background: 0 0% 3%; /* Extremely dark, almost pure black */
+    --foreground: 0 0% 95%; /* Bright, readable white */
+
+    --card: 0 0% 6%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 0 0% 6%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 180 100% 50%; /* Electric Cyan - bright */
+    --primary-foreground: 0 0% 3%;
+
+    --secondary: 300 100% 60%; /* Hot Magenta - bright */
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 70%;
+
+    --accent: 60 100% 70%; /* Bright Amber Gold */
+    --accent-foreground: 0 0% 3%;
+
+    --destructive: 0 100% 60%; /* Vibrant Red */
+    --destructive-foreground: 0 0% 95%;
+
+    --border: 0 0% 15%;
+    --input: 0 0% 8%;
+    --ring: 180 100% 50%;
+
+    /* Trust Score Colors */
+    --trust-high: 120 100% 40%; /* Bright Green */
+    --trust-medium: 40 100% 60%; /* Bright Orange */
+    --trust-low: 0 100% 60%; /* Bright Red */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  .dark body {
+    text-shadow: 0 0 5px hsla(var(--foreground), 0.6), 0 0 12px hsla(var(--primary), 0.5);
+  }
+}
+
+@layer components {
+  .dashboard-card-effect {
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 6px -1px hsla(var(--foreground), 0.1), 0 2px 4px -2px hsla(var(--foreground), 0.1); /* Subtle initial shadow */
+  }
+
+  .dark .dashboard-card-effect {
+    box-shadow: 0 4px 6px -1px hsla(var(--background), 0.5), 0 2px 4px -2px hsla(var(--background), 0.5); /* Darker initial shadow */
+  }
+
+  .dashboard-card-effect:hover {
+    transform: translateY(-5px); /* Subtle lift */
+    box-shadow: 0 10px 15px -3px hsla(var(--primary), 0.3), 0 4px 6px -4px hsla(var(--primary), 0.3); /* Glow effect */
+  }
+
+  .dark .dashboard-card-effect:hover {
+    box-shadow: 0 10px 15px -3px hsla(var(--primary), 0.6), 0 4px 6px -4px hsla(var(--primary), 0.6); /* Stronger glow in dark mode */
+  }
+}
+
+@layer utilities {
+  @keyframes neon-shade-shift {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+  }
+
+  @keyframes animate-scale-in {
+    0% { opacity: 0; transform: scale(0.9); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+
+  @keyframes animate-slide-in-down {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes animate-slide-in-up {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes animate-slide-in-left {
+    0% { opacity: 0; transform: translateX(-20px); }
+    100% { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes animate-slide-in-right {
+    0% { opacity: 0; transform: translateX(20px); }
+    100% { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes animate-pulse-slow {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+  }
+
+  .dark body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      135deg,
+      hsla(var(--background), 0.1),
+      hsla(var(--primary), 0.08),
+      hsla(var(--secondary), 0.05),
+      hsla(var(--background), 0.1)
+    );
+    background-size: 300% 300%; /* Larger background for more movement */
+    animation: neon-shade-shift 40s ease infinite alternate; /* Slightly faster, more dynamic */
+    pointer-events: none;
+    z-index: -1;
+    opacity: 1;
+  }
+}
